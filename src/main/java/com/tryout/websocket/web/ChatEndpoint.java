@@ -20,8 +20,8 @@ import javax.websocket.server.ServerEndpoint;
 @ServerEndpoint(value = "/chat/{username}", decoders = MessageDecoder.class, encoders = MessageEncoder.class)
 public class ChatEndpoint {
     private Session session;
-    private static final Set<ChatEndpoint> chatEndpoints = new CopyOnWriteArraySet<ChatEndpoint>();
-    private static HashMap<String, String> users = new HashMap<String, String>();
+    private static final Set<ChatEndpoint> chatEndpoints = new CopyOnWriteArraySet<>();
+    private static HashMap<String, String> users = new HashMap<>();
 
     @OnOpen
     public void onOpen(Session session, @PathParam("username") String username) throws IOException, EncodeException {
